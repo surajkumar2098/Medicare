@@ -60,7 +60,6 @@ class HttpService {
     }
   }
 
-  //Method with authentication
   async getWithAuth<T = any > (endPoint:string,options?:RequestOptions): Promise<ApiResponse<T>> {
     return this.makeRequest<T>(endPoint,'GET',null, true, options)
   }
@@ -92,12 +91,12 @@ class HttpService {
 
 
 
-//Export the singleton instance
+
 export const httpService = new HttpService();
 
 
 
-//bind create a new function where this is permanently set to the instance of HttpService
+
 
 export const getWithAuth = httpService.getWithAuth.bind(httpService);
 export const postWithAuth = httpService.postWithAuth.bind(httpService);

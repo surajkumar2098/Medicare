@@ -28,14 +28,14 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:true}));
 
 
-//used response
+                //used response
 app.use(response);
 
 
-//Initialize passport
+                //Initialize passport
 app.use(passportLib.initialize());
 
-//Mongodb connection
+                //Mongodb connection
 mongoose.connect(process.env.MONGO_URI, {
     useNewUrlParser: true,
     useUnifiedTopology: true,

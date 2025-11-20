@@ -17,7 +17,7 @@ import { Button } from "../ui/button";
 import { Alert, AlertDescription } from "../ui/alert";
 import { Textarea } from "../ui/textarea";
 
-interface EmerfencyContact {
+interface EmergencyContact {
   name: string;
   phone: string;
   relationship: string;
@@ -33,7 +33,7 @@ interface PatientOnboardingData {
   dob: string;
   gender: string;
   bloodGroup?: string;
-  emergencyContact: EmerfencyContact;
+  emergencyContact: EmergencyContact;
   medicalHistory: MedicalHistory;
 }
 const PatientOnboardingForm = () => {
@@ -70,7 +70,7 @@ const PatientOnboardingForm = () => {
   };
 
   const handleEmergencyContactChnage = (
-    field: keyof EmerfencyContact,
+    field: keyof EmergencyContact,
     value: string
   ): void => {
     setFormData((prev) => ({

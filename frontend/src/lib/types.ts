@@ -1,4 +1,3 @@
-// Define proper TypeScript interfaces
 export interface TimeRange {
   start: string;
   end: string;
@@ -30,8 +29,6 @@ export interface DoctorFormData {
 }
 
 
-
-// ✅ Enhanced User Interface
 export interface User {
   id: string;
   name: string;
@@ -84,7 +81,6 @@ export interface User {
 }
 
 
-// interfaces/Doctor.ts
 export interface Doctor {
   _id: string;
   name: string;

@@ -16,9 +16,9 @@ const signToken = (id,type) =>
 
 router.post('/doctor/register',
     [
-        body('name').notEmpty(),
-        body('email').isEmail(),
-        body('password').isLength({min:6}),
+        body('name').trim().notEmpty().withMessage('Name is required'),
+        body('email').trim().isEmail().withMessage('Valid email is required').normalizeEmail(),
+        body('password').isLength({ min: 6 }).withMessage('Password must be at least 6 characters'),
     ],
     validate,
     async (req,res) => {
@@ -59,9 +59,9 @@ router.post('/doctor/register',
 
  router.post('/patient/register',
     [
-        body('name').notEmpty(),
-        body('email').isEmail(),
-        body('password').isLength({min:6}),
+        body('name').trim().notEmpty().withMessage('Name is required'),
+        body('email').trim().isEmail().withMessage('Valid email is required').normalizeEmail(),
+        body('password').isLength({ min: 6 }).withMessage('Password must be at least 6 characters'),
     ],
     validate,
     async (req,res) => {

@@ -58,7 +58,7 @@ export const healthcareCategories = [
 ];
 
 
-// Healthcare categories (matches backend)
+
 export const healthcareCategoriesList = [
   "Primary Care",
   "Manage Your Condition",
@@ -146,11 +146,11 @@ export const specializations = [
   export const contactInfo = [
   {
     icon: Phone,
-    text: "1-888-MEDICARE (1-888-633-4227)",
+    text: "9-8453(+91-9142040270)",
   },
   {
     icon: Mail,
-    text: "support@medicare-plus.com",
+    text: "surajgupta6313@gmail.com",
   },
   {
     icon: MapPin,
@@ -193,14 +193,23 @@ export const specializations = [
 
 
   export const socials = [
-  { name: "twitter", icon: Twitter, url: "https://twitter.com/medicare-plus" },
-  { name: "facebook", icon: Facebook, url: "https://facebook.com/medicare-plus" },
-  { name: "linkedin", icon: Linkedin, url: "https://linkedin.com/company/medicare-plus" },
-  { name: "instagram", icon: Instagram, url: "https://instagram.com/medicare-plus"},
+  { name: "twitter", icon: Twitter, url: "https://x.com/NITKURUKSHETRA" },
+  { name: "facebook", icon: Facebook, url: "https://www.facebook.com/nitkurukshetraofficialpage/" },
+  { name: "linkedin", icon: Linkedin, url: "https://www.linkedin.com/company/training-and-placement-cell-nit-kurukshetra/posts/?feedView=all" },
+  { name: "instagram", icon: Instagram, url: "https://www.instagram.com/nitkurukshetra/?hl=en"},
 ]
 
 
-export  const cities = ['Mumbai', 'Delhi', 'Bangalore', 'Chennai', 'Kolkata', 'Hyderabad', 'Pune', 'Ahmedabad'];
+export  const cities = ["Mumbai", "Delhi", "Bengaluru", "Kolkata", "Chennai", "Hyderabad",
+    "Ahmedabad", "Pune", "Surat", "Jaipur", "Lucknow", "Kanpur",
+    "Nagpur", "Visakhapatnam", "Indore", "Thane", "Bhopal", "Patna",
+    "Vadodara", "Ghaziabad", "Ludhiana", "Agra", "Nashik", "Faridabad",
+    "Meerut", "Rajkot", "Varanasi", "Srinagar", "Aurangabad", "Dhanbad",
+    "Amritsar", "Prayagraj", "Ranchi", "Howrah", "Coimbatore", "Jabalpur",
+    "Gwalior", "Vijayawada", "Jodhpur", "Madurai", "Raipur", "Kota",
+    "Guwahati", "Chandigarh", "Mysuru", "Bhubaneswar", "Thiruvananthapuram",
+    "Dehradun", "Rourkela", "Kochi", "Mangaluru", "Tiruchirappalli",
+    "Kozhikode", "Ajmer", "Udaipur", "Haridwar", "Puducherry"];
 
 
 

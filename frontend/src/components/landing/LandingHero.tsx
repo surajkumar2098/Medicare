@@ -83,12 +83,12 @@ const LandingHero = () => {
                 <div className='flex items-center space-x-2'>
                      <div className='w-2 h-2 bg-green-500 rounded-full'>
                      </div>
-                     <span>500+ Certified Doctors</span>
+                     <span>100+ Certified Doctors</span>
                 </div>
                       <div className='flex items-center space-x-2'>
                      <div className='w-2 h-2 bg-green-500 rounded-full'>
                      </div>
-                     <span>50,000+ Satisfied Patients</span>
+                     <span>5,000+ Healthy & Satisfied Patients</span>
                 </div>
                       <div className='flex items-center space-x-2'>
                      <div className='w-2 h-2 bg-green-500 rounded-full'>

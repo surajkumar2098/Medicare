@@ -10,7 +10,7 @@ const FAQSection = () => {
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
           <h2 className="text-3xl font-bold text-primary mb-12">
-            Trusted by millions since 2010
+            Trusted by millions since 2025
           </h2>
 
           <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6 items-center">
