@@ -6,6 +6,7 @@ import {
   Settings,
   Stethoscope,
   User,
+  MessageSquare,
 } from "lucide-react";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
@@ -111,6 +112,16 @@ const Header: React.FC<HeaderProps> = ({ showDashboardNav = false }) => {
 
         {isAuthenticated && showDashboardNav ? (
           <div className="flex items-center space-x-4">
+            <Link href="/assistant">
+              <Button
+                variant="ghost"
+                size="sm"
+                className="hidden md:flex items-center space-x-2"
+              >
+                <MessageSquare className="w-4 h-4" />
+                <span className="text-sm">Talk to assistant</span>
+              </Button>
+            </Link>
             <Button variant="ghost" size="sm" className="relative">
               <Bell className="w-5 h-5" />
               <Badge className="absolute -top-1 -right-1 w-5 h-5 text-xs bg-red-500 hover:bg-red-600">
@@ -216,6 +227,15 @@ const Header: React.FC<HeaderProps> = ({ showDashboardNav = false }) => {
               </>
             ) : (
               <div className="flex items-center space-x-4 ">
+                <Link href="/assistant">
+                  <Button
+                    variant="ghost"
+                    className="flex items-center space-x-2 text-blue-900 font-medium hover:text-blue-700"
+                  >
+                    <MessageSquare className="w-4 h-4" />
+                    <span>Talk to assistant</span>
+                  </Button>
+                </Link>
                 <span className="hidden md:block text-sm text-gray-700 font-medium whitespace-nowrap">
                   Welcome,&nbsp;{user?.name}
                 </span>

@@ -164,7 +164,7 @@ export const specializations = [
       title: "Company",
       links: [
         { text: "About Us", href: "/about" },
-        { text: "Support Center", href: "/support" },
+        { text: "Support Center", href: "/assistant" },
         { text: "Contact Us", href: "/contact" }
       ]
     },

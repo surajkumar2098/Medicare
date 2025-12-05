@@ -1,9 +1,10 @@
 "use client";
 import { DoctorFilters } from "@/lib/types";
 import { useDoctorStore } from "@/store/doctorStore";
-import { useSearchParams } from "next/navigation";
+import { useSearchParams, useRouter } from "next/navigation";
 import React, { useEffect, useState } from "react";
 import Header from "../landing/Header";
+import { userAuthStore } from "@/store/authStore";
 import { FilterIcon, MapPin, Search, Star, X } from "lucide-react";
 import { Input } from "../ui/input";
 import { Button } from "../ui/button";
@@ -26,6 +27,9 @@ const DoctorListPage = () => {
 
   const { doctors, loading, fetchDoctors } = useDoctorStore();
 
+  const { isAuthenticated } = userAuthStore();
+  const router = useRouter();
+
   const [filters, setFilters] = useState<DoctorFilters>({
     search: "",
     specialization: "",
@@ -38,6 +42,12 @@ const DoctorListPage = () => {
   const [showFilters, setShowFilters] = useState(false);
 
   useEffect(() => {
+    // Redirect unauthenticated users to login
+    if (!isAuthenticated) {
+      router.push("/login/patient");
+      return;
+    }
+
     fetchDoctors(filters);
   }, [fetchDoctors, filters]);
 

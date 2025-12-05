@@ -1,0 +1,118 @@
+[
+  {
+    "ts": "2025-11-20T19:35:03.326Z",
+    "question": "dgdfgdfg",
+    "answer": "I couldn't find an exact answer in the knowledge base or the web. Please try rephrasing your question or contact support for help.",
+    "source": "none"
+  },
+  {
+    "ts": "2025-11-20T19:35:25.744Z",
+    "question": "how can i book doctor appointment",
+    "reply": "To book an appointment, use the **Search** bar to find a doctor by **Specialty** or **Symptom**. View their profile, check the **schedule**, and select your preferred **date and time slot**. Finally, click **Book Appointment** to confirm. We offer **Clinical**, **Home Visit**, and **Remote Video Consultation** modes.",
+    "source": "kb",
+    "intent": "booking_appointment"
+  },
+  {
+    "ts": "2025-11-20T19:37:46.071Z",
+    "question": "hi",
+    "reply": "Hi! I'm your AI assistant. I can help you find a doctor, book appointments, or answer questions about the system.",
+    "source": "kb",
+    "intent": "greeting"
+  },
+  {
+    "ts": "2025-11-20T19:46:00.014Z",
+    "question": "fsadfsdfdfd",
+    "answer": "I couldn't find an exact answer in the knowledge base or the web. Please try rephrasing your question or contact support for help.",
+    "source": "none"
+  },
+  {
+    "ts": "2025-11-20T19:50:57.215Z",
+    "question": "hi",
+    "reply": "Hi! I'm your AI assistant. I can help you find a doctor, book appointments, or answer questions about the system.",
+    "source": "kb",
+    "intent": "greeting"
+  },
+  {
+    "ts": "2025-11-20T19:51:16.056Z",
+    "question": "how to book appointment of a doctor",
+    "reply": "To book an appointment, use the **Search** bar to find a doctor by **Specialty** or **Symptom**. View their profile, check the **schedule**, and select your preferred **date and time slot**. Finally, click **Book Appointment** to confirm. We offer **Clinical**, **Home Visit**, and **Remote Video Consultation** modes.",
+    "source": "kb",
+    "intent": "booking_appointment"
+  },
+  {
+    "ts": "2025-11-20T19:54:42.531Z",
+    "question": "hi",
+    "reply": "Hi! I'm your AI assistant. I can help you find a doctor, book appointments, or answer questions about the system.",
+    "source": "kb",
+    "intent": "greeting"
+  },
+  {
+    "ts": "2025-11-20T19:56:38.312Z",
+    "question": "hi",
+    "reply": "Hello! Welcome to the Doctor Consultation platform. How can I help you schedule your healthcare today?",
+    "source": "kb",
+    "intent": "greeting"
+  },
+  {
+    "ts": "2025-11-20T20:00:55.392Z",
+    "question": "hi",
+    "reply": "Hi! I'm your AI assistant. I can help you find a doctor, book appointments, or answer questions about the system.",
+    "source": "kb",
+    "intent": "greeting"
+  },
+  {
+    "ts": "2025-11-20T20:01:11.313Z",
+    "question": "how to give feedback about doctor",
+    "reply": "The **Ratings and Reviews** feature allows you to rate your experience with the doctor. This is crucial for platform quality and is typically done right after the appointment is marked as completed.",
+    "source": "kb",
+    "intent": "give_feedback"
+  },
+  {
+    "ts": "2025-11-20T20:05:47.041Z",
+    "question": "hi",
+    "reply": "Hello! Welcome to the Doctor Consultation platform. How can I help you schedule your healthcare today?",
+    "source": "kb",
+    "intent": "greeting"
+  },
+  {
+    "ts": "2025-11-20T20:13:08.526Z",
+    "question": "hi",
+    "reply": "Hello! Welcome to the Doctor Consultation platform. How can I help you schedule your healthcare today?",
+    "source": "kb",
+    "intent": "greeting"
+  },
+  {
+    "ts": "2025-11-20T20:13:27.110Z",
+    "question": "how to give feedback about a doctor",
+    "reply": "The **Ratings and Reviews** feature allows you to rate your experience with the doctor. This is crucial for platform quality and is typically done right after the appointment is marked as completed.",
+    "source": "kb",
+    "intent": "give_feedback"
+  },
+  {
+    "ts": "2025-11-20T20:13:39.869Z",
+    "question": "how to book appointment of a doctor",
+    "reply": "You can schedule an appointment by searching for a doctor, viewing their profile for available time slots, and then proceeding with the booking and payment process. The system ensures the doctor's schedule is checked before confirming.",
+    "source": "kb",
+    "intent": "booking_appointment"
+  },
+  {
+    "ts": "2025-11-21T04:33:29.251Z",
+    "question": "hi",
+    "reply": "Hello! Welcome to the Doctor Consultation platform. How can I help you schedule your healthcare today?",
+    "source": "kb",
+    "intent": "greeting"
+  },
+  {
+    "ts": "2025-11-21T04:33:48.116Z",
+    "question": "how can i give feedback abouy doctor",
+    "reply": "The **Ratings and Reviews** feature allows you to rate your experience with the doctor. This is crucial for platform quality and is typically done right after the appointment is marked as completed.",
+    "source": "kb",
+    "intent": "give_feedback"
+  },
+  {
+    "ts": "2025-11-21T04:34:01.215Z",
+    "question": "jkfdsfksd",
+    "answer": "I couldn't find an answer in the knowledge base or on the web. Try rephrasing or contact support.",
+    "source": "none"
+  }
+]

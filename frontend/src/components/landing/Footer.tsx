@@ -1,12 +1,111 @@
 "use client";
 import { contactInfo, footerSections, socials } from "@/lib/constant";
 import { Stethoscope } from "lucide-react";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Button } from "../ui/button";
+import { useRouter } from "next/navigation";
+import { userAuthStore } from "@/store/authStore";
 
 const Footer = () => {
+  const router = useRouter();
+  const { isAuthenticated, user } = userAuthStore();
+
+  const handleLinkClick = (e: React.MouseEvent, href: string) => {
+    // Treat support center/assistant link specially: require auth
+    if (href === "/assistant") {
+      e.preventDefault();
+      if (isAuthenticated) {
+        router.push("/assistant");
+      } else {
+        router.push("/login/patient");
+      }
+      return;
+    }
+
+    // Require auth for viewing all doctors — authenticated patients go to /doctor-list
+    if (href === "/doctors") {
+      e.preventDefault();
+      if (!isAuthenticated) {
+        router.push("/login/patient");
+        return;
+      }
+
+      if (user && user.type === "patient") {
+        router.push("/doctor-list");
+      } else {
+        // fallback for other authenticated users
+        router.push("/doctors");
+      }
+      return;
+    }
+
+    // Require auth for Doctor Resources (any authenticated user)
+    if (href === "/doctor-resources") {
+      e.preventDefault();
+      if (!isAuthenticated) {
+        router.push("/login/patient");
+        return;
+      }
+
+      router.push("/doctor-resources");
+      return;
+    }
+
+    // For other internal links, use client routing
+    if (href && href.startsWith("/")) {
+      e.preventDefault();
+      router.push(href);
+    }
+  };
+
+  // subscription state
+  const [email, setEmail] = useState("");
+  const [error, setError] = useState("");
+  const [showToast, setShowToast] = useState(false);
+
+  useEffect(() => {
+    let t: ReturnType<typeof setTimeout> | null = null;
+    if (showToast) {
+      t = setTimeout(() => setShowToast(false), 5000);
+    }
+    return () => {
+      if (t) clearTimeout(t);
+    };
+  }, [showToast]);
+
+  const handleSubscribe = () => {
+    // simple gmail validation
+    const gmailRegex = /^[a-zA-Z0-9._%+-]+@gmail\.com$/i;
+    if (!email || !gmailRegex.test(email.trim())) {
+      setError("Please enter a valid Gmail address (example@gmail.com)");
+      return;
+    }
+
+    // Success: show toast
+    setError("");
+    setShowToast(true);
+    setEmail("");
+  };
+
   return (
-    <footer className="bg-gradient-to-br from-blue-900 via-blue-800 to-blue-900 text-white">
+    <>
+      {/* Top fixed toast (slides down) */}
+      <div aria-live="assertive" className="pointer-events-none fixed inset-x-0 top-4 flex justify-center z-50">
+        <div className={`pointer-events-auto max-w-xl w-full mx-4 transition transform ${showToast ? 'translate-y-0 opacity-100' : '-translate-y-6 opacity-0'}`}>
+          <div className="rounded-md bg-green-600 text-white px-4 py-2 shadow-lg flex items-center justify-between">
+            <div className="text-sm">Subscribed successfully</div>
+            <button
+              aria-label="Dismiss"
+              onClick={() => setShowToast(false)}
+              className="text-white/90 hover:text-white ml-4"
+            >
+              ✕
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <footer className="bg-gradient-to-br from-blue-900 via-blue-800 to-blue-900 text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="py-16">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
@@ -51,7 +150,8 @@ const Footer = () => {
                       {section.links.map((link, linkIndex) => (
                         <li key={linkIndex}>
                           <a
-                            href={link.href}
+                            href={link.href === "/doctors" ? "/doctor-list" : link.href}
+                            onClick={(e) => handleLinkClick(e, link.href)}
                             className="text-blue-200 hover:text-white transition-colors duration-200 text-sm hover:underline"
                           >
                             {link.text}
@@ -77,15 +177,37 @@ const Footer = () => {
               </p>
             </div>
 
-            <div className="flex flex-col sm:flex-row gap-3 w-full md:w-auto">
-              <input
-                type="email"
-                placeholder="Enter your email"
-                className="px-4 py-2 rpounded-lg bg-blue-800/50 border border-blue-600 text-white placeholder:blue-300  focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent min-w-[280px]"
-              />
-              <Button className="bg-blue-600 hover:bg-blue-500 text-white px-6 py-2 rounded-lg whitespace-nowrap">
-                Subscribe
-              </Button>
+            <div className="flex flex-col sm:flex-row gap-3 w-full md:w-auto items-start">
+              <div className="flex items-center gap-2">
+                <input
+                  type="email"
+                  aria-label="Subscribe email"
+                  value={email}
+                  onChange={(e) => {
+                    setEmail(e.target.value);
+                    if (error) setError("");
+                  }}
+                  placeholder="Enter your gmail"
+                  className="px-4 py-2 rounded-lg bg-blue-800/50 border border-blue-600 text-white placeholder:blue-300 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent min-w-[280px]"
+                />
+
+                <Button
+                  onClick={handleSubscribe}
+                  className="bg-blue-600 hover:bg-blue-500 text-white px-6 py-2 rounded-lg whitespace-nowrap"
+                >
+                  Subscribe
+                </Button>
+              </div>
+
+              <div className="w-full md:w-auto">
+                {error && (
+                  <div className="mt-2 text-sm text-red-200 bg-red-900/20 px-3 py-2 rounded">
+                    {error}
+                  </div>
+                )}
+
+                {/* toast is rendered at top of viewport */}
+              </div>
             </div>
           </div>
         </div>
@@ -99,7 +221,7 @@ const Footer = () => {
             </div>
 
             <div className="flex items-center space-x-4">
-              <span className="text-blue-200 text-sm">Follow use:</span>
+              <span className="text-blue-200 text-sm">Follow Us:</span>
               <div className="flex space-x-3">
                 {socials.map(({ name, icon: Icon, url }) => (
                   <a
@@ -118,7 +240,8 @@ const Footer = () => {
           </div>
         </div>
       </div>
-    </footer>
+      </footer>
+    </>
   );
 };
 
